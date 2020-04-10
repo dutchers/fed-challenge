@@ -20,17 +20,41 @@
 
   <div class="hero">
     <div class="container">
-      <!-- Hero Section !--->
+      <img src="./images/hero-logo.png" class="hero__logo" />
+      <div class="hero__body">
+        <h1>Main Header</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+          Maecenas eu massa sit amet augue consectetur ullamcorper
+          non ac massa.</p>
+        <button>Button Text</button>
+      </div>
+      <img src="./images/hero-graphic.png" class="hero__graphic" />
     </div>
   </div>
 
   <div class="page">
 
     <div class="container">
-      <!-- Cards --->
+      <h2 class="page__header">Content Header</h2>
+      <ul id="cards" class="page__cards">
+      </ul>
     </div>
 
     <div class="container">
+      <section class="page__side-by-side">
+        <div>
+          <p>
+            Varius nunc, sed ad odio at <strong>mauris id</strong> vulputate id ut orci nominae.
+          </p>
+        </div>
+        <div>
+          <p>
+            Nullam faucibus neque vitae accumsan porta luctus posuere.
+          </p>
+        </div>
+      <img src="./images/landscape-bg.png" class="page__landscape" />
+      </section>
+      
       <!-- Bottom CTA --->
     </div>
 
@@ -38,9 +62,63 @@
 
   <div class="footer">
     <div class="container">
-      <!-- Footer !--->
+      <div class="footer__content">
+        <img src="./images/footer-logo.png" />
+        <p>© 2019 Qualia Labs, Inc. All Rights Reserved</p>
+      </div>
     </div>
   </div>
 
+  <script>
+    const cards = document.getElementById('cards')
+    const content = [
+      { title: 'Header 1',
+        body: `Maecenas eu mollis odio. Maecenas consequat tincidunt arcu in
+        venenatis.`
+      },
+      { title: 'Header 2',
+        body: `Vestibulum sagittis massa non mi commodo tempor non convallis sem.`
+      },
+      { title: 'Header 3',
+        body: 'Donec scelerisque arcu a porta mollis. Nulla a massa sem.'
+      },
+      { title: 'Header 4',
+        body: `Maecenas eu mollis odio. Maecenas consequat tincidunt arcu in
+        venenatis.`
+      },
+      { title: 'Header 5',
+        body: 'Vestibulum sagittis massa non mi commodo tempor non convallis sem.'
+      },
+      { title: 'Header 6',
+        body: 'Donec scelerisque arcu a porta mollis. Nulla a massa sem.'
+      },
+    ]
+
+    content.forEach(card => {
+      const item = document.createElement('li')
+      item.classList.add('card')
+      const container = document.createElement('div')
+      const hero = document.createElement('div')
+      hero.classList.add('card__hero')
+      const image = document.createElement('img')
+      image.src = "./images/card-header-image.png"
+      const inner = document.createElement('div')
+      inner.classList.add('card__inner')
+      const header = document.createElement('h3')
+      header.innerText = card.title
+      const body = document.createElement('p')
+      body.classList.add('card__body')
+      body.innerText = card.body
+
+      hero.appendChild(image)
+      container.appendChild(hero)
+      container.appendChild(inner)
+      inner.appendChild(header)
+      inner.appendChild(body)
+      item.appendChild(container)
+      cards.appendChild(item)
+    })
+  </script>
 
 </body>
+</html>
